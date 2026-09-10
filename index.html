@@ -253,27 +253,43 @@
         .tag-kr { background: #e3f2fd; color: #0d47a1; }
         .tag-en { background: #e8f5e9; color: #1b5e20; }
 
-        /* OFFER BOX */
+        /* OFFER BOX CORRIGIDA (FUNDO BRANCO, TEXTO ESCURO E FOTO DE CREATIVE) */
         .offer-box {
-            background: var(--bg-card-dark);
-            border: 2px solid var(--primary-yellow);
+            background: #ffffff;
+            border: 3px solid var(--primary-yellow);
             border-radius: 15px;
             padding: 40px 20px;
             text-align: center;
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            color: var(--text-dark);
+        }
+
+        .offer-box h3, 
+        .offer-box p {
+            color: var(--text-dark);
+        }
+
+        .offer-box .checkout-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 8px;
+            margin: 15px auto 20px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: block;
         }
 
         .price-old {
             text-decoration: line-through;
-            color: var(--text-muted);
+            color: #777777;
             font-size: 1.2rem;
         }
 
         .price-new {
             font-size: 3rem;
             font-weight: 900;
-            color: var(--primary-yellow);
+            color: #d4a000;
             margin: 10px 0;
         }
 
@@ -315,7 +331,6 @@
         <div class="container">
             <h1>+382 Mapas Mentais para Aprender <span class="highlight-yellow">Coreano e Inglês</span> de Forma Visual</h1>
             
-            <!-- SUBTÍTULO ATUALIZADO COM CLAREZA E FOCO NO BENEFÍCIO -->
             <p>Estude do básico ao avançado com materiais totalmente organizados, ilustrados e fáceis de revisar direto pelo celular, tablet ou impressos.</p>
             
             <div class="protected-img-wrapper">
@@ -370,7 +385,7 @@
     <section class="section-light">
         <div class="container">
             <h2>O Que Você Vai Receber no <span class="highlight-yellow">Kit Completo</span></h2>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">Acesso imediato a 11 guias visuais e e-books práticos em PDF:</p>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Acesso imediato a todos os e-books, guias e mapas mentais em PDF:</p>
 
             <div class="grid-3">
                 <div class="ebook-card">
@@ -439,7 +454,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <a href="#checkout" class="btn-primary">GARANTIR MEUS 11 E-BOOKS</a>
+                <a href="#checkout" class="btn-primary">GARANTIR MEU PACOTE COMPLETO</a>
             </div>
         </div>
     </section>
@@ -465,27 +480,37 @@
         </div>
     </section>
 
-    <!-- OFFER BOX -->
+    <!-- OFFER BOX COM TODOS OS BÔNUS E FOTO DE CREATIVE -->
     <section class="section-light" id="checkout">
         <div class="container">
             <div class="offer-box">
-                <p style="text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Oferta Especial por Tempo Limitado</p>
+                <p style="text-transform: uppercase; letter-spacing: 1px; color: #666; font-weight: 600;">Oferta Especial por Tempo Limitado</p>
                 <h3 style="font-size: 1.8rem; margin: 15px 0;">Kit Completo: 11 E-books de Coreano + Inglês Visual</h3>
                 
+                <!-- FOTO DE CRIATIVO NO CHECKOUT (Substitua 'criativo.png' pelo nome da sua imagem) -->
+                <img src="criativo.png" alt="Criativo Kit de E-books" class="checkout-img">
+
                 <p class="price-old">De R$ 147,00</p>
                 <p class="price-new">R$ 29,90</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">ou em até 4x no cartão de crédito</p>
+                <p style="color: #666; font-size: 0.9rem;">ou em até 4x no cartão de crédito</p>
 
-                <ul style="text-align: left; max-width: 380px; margin: 25px auto; color: var(--text-light); font-size: 0.95rem; line-height: 2; list-style: none;">
-                    <li>✔ <strong>300 Mapas Mentais</strong> de Coreano Visual</li>
-                    <li>✔ <strong>Guias de Alfabetização</strong> + Exercícios</li>
-                    <li>✔ <strong>Resumos de Inglês</strong> para ENEM e Estudos</li>
-                    <li>✔ <strong>Acesso Vitalício</strong> + Download Imediato</li>
+                <!-- LISTA COMPLETA COM TODOS OS 11 ITENS E BÔNUS -->
+                <ul style="text-align: left; max-width: 440px; margin: 25px auto; color: var(--text-dark); font-size: 0.95rem; line-height: 2; list-style: none;">
+                    <li>✔ <strong>+300 Mapas Mentais</strong> de Coreano Visual</li>
+                    <li>✔ <strong>Guia de Alfabetização Hangul</strong> + Exercícios</li>
+                    <li>✔ <strong>Frases Básicas</strong> do Cotidiano Coreano</li>
+                    <li>✔ <strong>3 E-books</strong> de Palavras e Vocabulário Essencial</li>
+                    <li>✔ <strong>Caderno de Atividades</strong> de Verbos e Pronomes</li>
+                    <li>✔ <strong>Mapas Mentais</strong> de Verbos Modais em Inglês</li>
+                    <li>✔ <strong>Técnicas de Interpretação</strong> de Texto e ENEM</li>
+                    <li>✔ <strong>Guia de Tempos Verbais</strong> & Vocabulário em Inglês</li>
+                    <li>✔ <strong>Acesso Vitalício</strong> + Atualizações Futuras</li>
+                    <li>✔ <strong>Download Imediato</strong> em Alta Resolução (PDF)</li>
                 </ul>
 
                 <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn-primary">COMPRAR AGORA COM DESCONTO</a>
                 
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px;">🔒 Pagamento 100% Seguro • Receba no seu E-mail</p>
+                <p style="font-size: 0.8rem; color: #777; margin-top: 15px;">🔒 Pagamento 100% Seguro • Receba no seu E-mail</p>
             </div>
         </div>
     </section>
@@ -497,7 +522,7 @@
             <br>
             <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Como vou receber o material?</h4>
-                <p>O acesso é imediato! Assim que o pagamento for confirmed, você receberá os links para download de todos os PDFs no seu e-mail.</p>
+                <p>O acesso é imediato! Assim que o pagamento for confirmado, você receberá os links para download de todos os PDFs no seu e-mail.</p>
             </div>
             <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Posso imprimir os e-books e mapas mentais?</h4>
