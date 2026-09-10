@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kit Definitivo de Mapas Mentais | Coreano e Inglês Visual</title>
+    <title>Kit Definitivo de Mapas Mentais | Coreano, Inglês e Espanhol Visual</title>
 
     <!-- META PIXEL CODE -->
     <script>
@@ -30,7 +30,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            /* DESABILITA SELEÇÃO E DRAG PADRÃO DAS IMAGENS */
             -webkit-user-select: none;
             -khtml-user-select: none;
             -moz-user-select: none;
@@ -63,7 +62,6 @@
             padding: 0 20px;
         }
 
-        /* TYPOGRAPHY & BUTTONS */
         h1, h2, h3 {
             font-weight: 800;
             text-align: center;
@@ -101,7 +99,6 @@
             transform: translateY(-2px);
         }
 
-        /* SECTIONS */
         section {
             padding: 60px 0;
         }
@@ -116,7 +113,6 @@
             color: var(--text-dark);
         }
 
-        /* HERO SECTION */
         .hero {
             text-align: center;
             padding: 50px 0 40px 0;
@@ -161,7 +157,6 @@
             pointer-events: none;
         }
 
-        /* CARROSSEL ARRASTÁVEL & INFINITO */
         .carousel-container {
             overflow-x: auto;
             scroll-behavior: smooth;
@@ -196,7 +191,6 @@
             pointer-events: none;
         }
 
-        /* FEATURES / BENEFICIOS */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -217,7 +211,6 @@
             margin-bottom: 10px;
         }
 
-        /* EBOOKS GRID */
         .ebook-card {
             background: #fff;
             border: 1px solid #e0e0e0;
@@ -252,8 +245,8 @@
 
         .tag-kr { background: #e3f2fd; color: #0d47a1; }
         .tag-en { background: #e8f5e9; color: #1b5e20; }
+        .tag-es { background: #fff3e0; color: #e65100; }
 
-        /* OFFER BOX CORRIGIDA (FUNDO BRANCO, TEXTO ESCURO E FOTO DE CREATIVE) */
         .offer-box {
             background: #ffffff;
             border: 3px solid var(--primary-yellow);
@@ -293,7 +286,6 @@
             margin: 10px 0;
         }
 
-        /* FAQ */
         .faq-item {
             background: #fff;
             margin-bottom: 10px;
@@ -307,7 +299,6 @@
             margin-bottom: 5px;
         }
 
-        /* FOOTER */
         footer {
             background: #000;
             color: var(--text-muted);
@@ -316,7 +307,6 @@
             font-size: 0.85rem;
         }
 
-        /* MEDIA QUERIES */
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .price-new { font-size: 2.5rem; }
@@ -329,7 +319,7 @@
     <!-- HERO SECTION -->
     <section class="section-light hero">
         <div class="container">
-            <h1>+300 Mapas Mentais para Aprender <span class="highlight-yellow">Coreano e Inglês</span> de Forma Visual</h1>
+            <h1>+ Mapas Mentais para Aprender <span class="highlight-yellow">Coreano, Inglês e Espanhol</span> de Forma Visual</h1>
             
             <p>Estude do básico ao avançado com materiais totalmente organizados, ilustrados e fáceis de revisar direto pelo celular, tablet ou impressos.</p>
             
@@ -354,7 +344,6 @@
 
         <div class="carousel-container" id="carouselContainer">
             <div class="carousel-track" id="carouselTrack">
-                <!-- CONJUNTO 1 -->
                 <img src="print1.jpg" alt="Preview 1">
                 <img src="print2.jpg" alt="Preview 2">
                 <img src="print3.jpg" alt="Preview 3">
@@ -366,7 +355,6 @@
                 <img src="print9.jpg" alt="Preview 9">
                 <img src="print10.jpg" alt="Preview 10">
 
-                <!-- CONJUNTO 2 (LOOP INFINITO) -->
                 <img src="print1.jpg" alt="Preview 1">
                 <img src="print2.jpg" alt="Preview 2">
                 <img src="print3.jpg" alt="Preview 3">
@@ -388,6 +376,22 @@
             <p style="text-align: center; color: #666; margin-bottom: 30px;">Acesso imediato a todos os e-books, guias e mapas mentais em PDF:</p>
 
             <div class="grid-3">
+                <div class="ebook-card">
+                    <div>
+                        <span class="tag tag-es">Espanhol</span>
+                        <h4>Espanhol Essencial: Caderno de Aprendizagem</h4>
+                        <p>Roteiro completo em mapas de estudo cobrindo gramática, vocabulário, horas, falsos cognatos e leituras[cite: 1, 2].</p>
+                    </div>
+                </div>
+
+                <div class="ebook-card">
+                    <div>
+                        <span class="tag tag-es">Espanhol</span>
+                        <h4>2.000 Palavras Mais Comuns</h4>
+                        <p>Vocabulário essencial em espanhol estruturado com tradução e frases de contexto para conversação rápida[cite: 1].</p>
+                    </div>
+                </div>
+
                 <div class="ebook-card">
                     <div>
                         <span class="tag tag-kr">Coreano</span>
@@ -414,22 +418,6 @@
 
                 <div class="ebook-card">
                     <div>
-                        <span class="tag tag-kr">Coreano</span>
-                        <h4>3 E-books de Palavras e Vocabulário</h4>
-                        <p>Listas categorizadas com as palavras mais utilizadas no dia a dia em Seul.</p>
-                    </div>
-                </div>
-
-                <div class="ebook-card">
-                    <div>
-                        <span class="tag tag-kr">Coreano</span>
-                        <h4>Atividades de Verbos e Pronomes</h4>
-                        <p>Cadernos de exercícios focados na fixação de conjugações e partículas essenciais.</p>
-                    </div>
-                </div>
-
-                <div class="ebook-card">
-                    <div>
                         <span class="tag tag-en">Inglês</span>
                         <h4>Mapas Mentais de Verbos Modais</h4>
                         <p>Resumos visuais para entender Can, Could, May, Might, Must e Should sem complicação.</p>
@@ -440,7 +428,7 @@
                     <div>
                         <span class="tag tag-en">Inglês</span>
                         <h4>Técnicas de Interpretação e ENEM</h4>
-                        <p>Skimming, Scanning, Cognatos e estruturas perfeitas para gabaritar leituras em inglês.</p>
+                        <p>Skimming, Scanning, Cognatos e estruturas perfeitas para leituras em inglês.</p>
                     </div>
                 </div>
 
@@ -480,35 +468,32 @@
         </div>
     </section>
 
-    <!-- OFFER BOX COM TODOS OS BÔNUS E FOTO DE CREATIVE -->
+    <!-- OFFER BOX -->
     <section class="section-light" id="checkout">
         <div class="container">
             <div class="offer-box">
                 <p style="text-transform: uppercase; letter-spacing: 1px; color: #666; font-weight: 600;">Oferta Especial por Tempo Limitado</p>
-                <h3 style="font-size: 1.8rem; margin: 15px 0;">Kit Completo: 11 E-books de Coreano + Inglês Visual</h3>
+                <h3 style="font-size: 1.8rem; margin: 15px 0;">Kit Completo: Coreano, Inglês e Espanhol Visual</h3>
                 
-                <!-- FOTO DE CRIATIVO NO CHECKOUT (Substitua 'criativo.png' pelo nome da sua imagem) -->
                 <img src="criativo.png" alt="Criativo Kit de E-books" class="checkout-img">
 
-                <p class="price-old">De R$ 147,00</p>
+                <p class="price-old">De R$ 197,00</p>
                 <p class="price-new">R$ 29,90</p>
                 <p style="color: #666; font-size: 0.9rem;">ou em até 4x no cartão de crédito</p>
 
-                <!-- LISTA COMPLETA COM TODOS OS 11 ITENS E BÔNUS -->
                 <ul style="text-align: left; max-width: 440px; margin: 25px auto; color: var(--text-dark); font-size: 0.95rem; line-height: 2; list-style: none;">
+                    <li>✔ <strong>Caderno de Espanhol Essencial</strong> (Mapas de Estudo)[cite: 2]</li>
+                    <li>✔ <strong>Guia de 2.000 Palavras Comuns em Espanhol</strong> com Contexto[cite: 1]</li>
                     <li>✔ <strong>+300 Mapas Mentais</strong> de Coreano Visual</li>
                     <li>✔ <strong>Guia de Alfabetização Hangul</strong> + Exercícios</li>
                     <li>✔ <strong>Frases Básicas</strong> do Cotidiano Coreano</li>
-                    <li>✔ <strong>3 E-books</strong> de Palavras e Vocabulário Essencial</li>
-                    <li>✔ <strong>Caderno de Atividades</strong> de Verbos e Pronomes</li>
-                    <li>✔ <strong>Mapas Mentais</strong> de Verbos Modais em Inglês</li>
+                    <li>✔ <strong>Mapas Mentais</strong> de Verbos Modais e Tempos em Inglês</li>
                     <li>✔ <strong>Técnicas de Interpretação</strong> de Texto e ENEM</li>
-                    <li>✔ <strong>Guia de Tempos Verbais</strong> & Vocabulário em Inglês</li>
                     <li>✔ <strong>Acesso Vitalício</strong> + Atualizações Futuras</li>
                     <li>✔ <strong>Download Imediato</strong> em Alta Resolução (PDF)</li>
                 </ul>
 
-                <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn-primary">COMPRAR AGORA COM DESCONTO</a>
+                <a href="https://link.syncpayments.com.br/qElDej" class="btn-primary">COMPRAR AGORA COM DESCONTO</a>
                 
                 <p style="font-size: 0.8rem; color: #777; margin-top: 15px;">🔒 Pagamento 100% Seguro • Receba no seu E-mail</p>
             </div>
@@ -530,7 +515,7 @@
             </div>
             <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Sou iniciante, esse material serve para mim?</h4>
-                <p>Com certeza! Os guias cobrem desde a alfabetização do Hangul no Coreano e regras básicas de Inglês até estruturas intermediárias de conversação.</p>
+                <p>Com certeza! Os guias cobrem desde o nível zero (alfabetização, vocabulário essencial e frases comuns) até estruturas intermediárias nos três idiomas.</p>
             </div>
         </div>
     </section>
