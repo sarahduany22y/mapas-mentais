@@ -116,6 +116,42 @@
             margin: 20px 0;
         }
 
+        /* CARROSSEL INFINITO */
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            background-color: var(--bg-dark);
+            padding: 20px 0 40px 0;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: max-content;
+            animation: scrollInfinite 35s linear infinite;
+        }
+
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+
+        .carousel-track img {
+            height: 250px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            object-fit: cover;
+        }
+
+        @keyframes scrollInfinite {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         /* FEATURES / BENEFICIOS */
         .grid-3 {
             display: grid;
@@ -224,6 +260,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .price-new { font-size: 2.5rem; }
+            .carousel-track img { height: 180px; }
         }
     </style>
 </head>
@@ -242,11 +279,49 @@
         </div>
     </section>
 
+    <!-- CARROSSEL INFINITO (PREVIEW DOS MATERIAIS) -->
+    <section class="section-dark" style="padding-bottom: 10px;">
+        <div class="container">
+            <h2>Veja Como o Material É <span class="highlight-yellow">Por Dentro</span></h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">
+                Mapas ilustrados e organizados para facilitar seus estudos e revisões rápidas.
+            </p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <!-- CONJUNTO DE IMAGENS 1 -->
+                <img src="print1.jpg" alt="Preview 1">
+                <img src="print2.jpg" alt="Preview 2">
+                <img src="print3.jpg" alt="Preview 3">
+                <img src="print4.jpg" alt="Preview 4">
+                <img src="print5.jpg" alt="Preview 5">
+                <img src="print6.jpg" alt="Preview 6">
+                <img src="print7.jpg" alt="Preview 7">
+                <img src="print8.jpg" alt="Preview 8">
+                <img src="print9.jpg" alt="Preview 9">
+                <img src="print10.jpg" alt="Preview 10">
+
+                <!-- CONJUNTO DE IMAGENS 2 (CÓPIA PARA LOOP INFINITO PERFEITO) -->
+                <img src="print1.jpg" alt="Preview 1">
+                <img src="print2.jpg" alt="Preview 2">
+                <img src="print3.jpg" alt="Preview 3">
+                <img src="print4.jpg" alt="Preview 4">
+                <img src="print5.jpg" alt="Preview 5">
+                <img src="print6.jpg" alt="Preview 6">
+                <img src="print7.jpg" alt="Preview 7">
+                <img src="print8.jpg" alt="Preview 8">
+                <img src="print9.jpg" alt="Preview 9">
+                <img src="print10.jpg" alt="Preview 10">
+            </div>
+        </div>
+    </section>
+
     <!-- O QUE VOCE VAI RECEBER (GRID DE EBOOKS) -->
-    <section class="section-dark">
+    <section class="section-light">
         <div class="container">
             <h2>O Que Você Vai Receber no <span class="highlight-yellow">Kit Completo</span></h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Acesso imediato a 11 guias visuais e e-books práticos em PDF:</p>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Acesso imediato a 11 guias visuais e e-books práticos em PDF:</p>
 
             <div class="grid-3">
                 
@@ -325,7 +400,7 @@
     </section>
 
     <!-- BENEFICIOS -->
-    <section class="section-light">
+    <section class="section-dark">
         <div class="container">
             <h2>Por que o Método Visual Funciona?</h2>
             <div class="grid-3">
@@ -346,7 +421,7 @@
     </section>
 
     <!-- CAIXA DE OFERTA / CHECKOUT -->
-    <section class="section-dark" id="checkout">
+    <section class="section-light" id="checkout">
         <div class="container">
             <div class="offer-box">
                 <p style="text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Oferta Especial por Tempo Limitado</p>
@@ -356,14 +431,13 @@
                 <p class="price-new">R$ 37,90</p>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">ou em até 4x no cartão de crédito</p>
 
-                <ul style="text-align: left; max-width: 380px; margin: 25px auto; color: var(--text-light); font-size: 0.95rem; line-height: 2;">
-                    <td>✔ <strong>300 Mapas Mentais</strong> de Coreano Visual</td><br>
-                    <td>✔ <strong>Guias de Alfabetização</strong> + Exercícios</td><br>
-                    <td>✔ <strong>Resumos de Inglês</strong> para ENEM e Estudos</td><br>
-                    <td>✔ <strong>Acesso Vitalício</strong> + Download Imediato</td>
+                <ul style="text-align: left; max-width: 380px; margin: 25px auto; color: var(--text-light); font-size: 0.95rem; line-height: 2; list-style: none;">
+                    <li>✔ <strong>300 Mapas Mentais</strong> de Coreano Visual</li>
+                    <li>✔ <strong>Guias de Alfabetização</strong> + Exercícios</li>
+                    <li>✔ <strong>Resumos de Inglês</strong> para ENEM e Estudos</li>
+                    <li>✔ <strong>Acesso Vitalício</strong> + Download Imediato</li>
                 </ul>
 
-                <!-- Substitua o # pelo seu link de checkout da Kiwify, Hotmart, Eduzz, etc -->
                 <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn-primary">COMPRAR AGORA COM DESCONTO</a>
                 
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px;">🔒 Pagamento 100% Seguro • Receba no seu E-mail</p>
@@ -372,19 +446,19 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section-light">
+    <section class="section-dark">
         <div class="container" style="max-width: 700px;">
             <h2>Perguntas Frequentes</h2>
             <br>
-            <div class="faq-item">
+            <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Como vou receber o material?</h4>
                 <p>O acesso é imediato! Assim que o pagamento for confirmado, você receberá os links para download de todos os PDFs no seu e-mail.</p>
             </div>
-            <div class="faq-item">
+            <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Posso imprimir os e-books e mapas mentais?</h4>
                 <p>Sim! Todos os PDFs foram formatados em alta resolução, perfeitos para estudo digital ou para impressão em papel A4.</p>
             </div>
-            <div class="faq-item">
+            <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Sou iniciante, esse material serve para mim?</h4>
                 <p>Com certeza! Os guias cobrem desde a alfabetização do Hangul no Coreano e regras básicas de Inglês até estruturas intermediárias de conversação.</p>
             </div>
