@@ -11,6 +11,13 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* DESABILITA SELEÇÃO E DRAG PADRÃO DAS IMAGENS */
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         :root {
@@ -108,31 +115,44 @@
             margin-bottom: 25px;
         }
 
+        .mockup-container {
+            position: relative;
+            display: inline-block;
+        }
+
         .mockup-img {
             width: 100%;
             max-width: 550px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             margin: 20px 0;
+            pointer-events: none; /* IMPEDE CLIQUE DIREITO / SALVAR */
         }
 
-        /* CARROSSEL INFINITO */
+        /* CARROSSEL ARRASTÁVEL & INFINITO */
         .carousel-container {
-            overflow: hidden;
+            overflow-x: auto;
+            scroll-behavior: smooth;
             width: 100%;
             background-color: var(--bg-dark);
             padding: 20px 0 40px 0;
             position: relative;
+            cursor: grab;
+            scrollbar-width: none; /* ESCONDE SCROLLBAR FIREFOX */
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none; /* ESCONDE SCROLLBAR CHROME/SAFARI */
+        }
+
+        .carousel-container:active {
+            cursor: grabbing;
         }
 
         .carousel-track {
             display: flex;
             width: max-content;
-            animation: scrollInfinite 35s linear infinite;
-        }
-
-        .carousel-container:hover .carousel-track {
-            animation-play-state: paused;
+            pointer-events: auto;
         }
 
         .carousel-track img {
@@ -141,15 +161,23 @@
             border-radius: 10px;
             border: 2px solid var(--border-color);
             object-fit: cover;
+            pointer-events: none; /* IMPEDE ARRASTAR A IMAGEM EM SI */
         }
 
-        @keyframes scrollInfinite {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+        /* PROTEÇÃO ANTI-DOWNLOAD / ANTI-PRINT */
+        .protected-img-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .protected-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: rgba(0,0,0,0);
         }
 
         /* FEATURES / BENEFICIOS */
@@ -264,7 +292,7 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;"> <!-- DESABILITA CLIQUE DIREITO NO SITE -->
 
     <!-- HERO SECTION -->
     <section class="section-light hero">
@@ -272,25 +300,28 @@
             <h1>+300 Mapas Mentais para Aprender <span class="highlight-yellow">Coreano e Inglês</span> de Forma Visual</h1>
             <p>Acelere seu aprendizado em até 3x mais rápido memorizando estruturas, verbos e vocabulários essenciais sem memorização mecânica.</p>
             
-            <img src="mockup.png" alt="Kit de E-books" class="mockup-img">
+            <div class="protected-img-wrapper">
+                <div class="protected-overlay"></div>
+                <img src="mockup.png" alt="Kit de E-books" class="mockup-img">
+            </div>
             
             <br>
             <a href="#checkout" class="btn-primary">QUERO O KIT COMPLETO AGORA</a>
         </div>
     </section>
 
-    <!-- CARROSSEL INFINITO (PREVIEW DOS MATERIAIS) -->
+    <!-- CARROSSEL INFINITO E ARRASTÁVEL -->
     <section class="section-dark" style="padding-bottom: 10px;">
         <div class="container">
             <h2>Veja Como o Material É <span class="highlight-yellow">Por Dentro</span></h2>
             <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">
-                Mapas ilustrados e organizados para facilitar seus estudos e revisões rápidas.
+                Deslize para os lados para ver as prévias dos mapas mentais.
             </p>
         </div>
 
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <!-- CONJUNTO DE IMAGENS 1 -->
+        <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- CONJUNTO 1 -->
                 <img src="print1.jpg" alt="Preview 1">
                 <img src="print2.jpg" alt="Preview 2">
                 <img src="print3.jpg" alt="Preview 3">
@@ -302,7 +333,7 @@
                 <img src="print9.jpg" alt="Preview 9">
                 <img src="print10.jpg" alt="Preview 10">
 
-                <!-- CONJUNTO DE IMAGENS 2 (CÓPIA PARA LOOP INFINITO PERFEITO) -->
+                <!-- CONJUNTO 2 (LOOP INFINITO) -->
                 <img src="print1.jpg" alt="Preview 1">
                 <img src="print2.jpg" alt="Preview 2">
                 <img src="print3.jpg" alt="Preview 3">
@@ -317,15 +348,13 @@
         </div>
     </section>
 
-    <!-- O QUE VOCE VAI RECEBER (GRID DE EBOOKS) -->
+    <!-- EBOOKS GRID -->
     <section class="section-light">
         <div class="container">
             <h2>O Que Você Vai Receber no <span class="highlight-yellow">Kit Completo</span></h2>
             <p style="text-align: center; color: #666; margin-bottom: 30px;">Acesso imediato a 11 guias visuais e e-books práticos em PDF:</p>
 
             <div class="grid-3">
-                
-                <!-- Coreano -->
                 <div class="ebook-card">
                     <div>
                         <span class="tag tag-kr">Coreano</span>
@@ -338,7 +367,7 @@
                     <div>
                         <span class="tag tag-kr">Coreano</span>
                         <h4>Alfabetização Hangul + Exercícios</h4>
-                        <p>Domine a leitura e escrita do alfabeto coreano a passo a passo simples com caderno prático.</p>
+                        <p>Domine a leitura e escrita do alfabeto coreano passo a passo com caderno prático.</p>
                     </div>
                 </div>
 
@@ -346,7 +375,7 @@
                     <div>
                         <span class="tag tag-kr">Coreano</span>
                         <h4>Frases Básicas do Cotidiano</h4>
-                        <p>Guia com a ordem SOV, níveis de formalidade e baterias de frases prontas para conversação.</p>
+                        <p>Guia com a ordem SOV, níveis de formalidade e frases prontas para conversação.</p>
                     </div>
                 </div>
 
@@ -354,7 +383,7 @@
                     <div>
                         <span class="tag tag-kr">Coreano</span>
                         <h4>3 E-books de Palavras e Vocabulário</h4>
-                        <p>Listas categorizadas com as palavras mais utilizadas no dia a dia em Seul para construir repertório.</p>
+                        <p>Listas categorizadas com as palavras mais utilizadas no dia a dia em Seul.</p>
                     </div>
                 </div>
 
@@ -362,11 +391,10 @@
                     <div>
                         <span class="tag tag-kr">Coreano</span>
                         <h4>Atividades de Verbos e Pronomes</h4>
-                        <p>Cadernos de exercícios focados na fixação de conjugações, partículas e pronomes essenciais.</p>
+                        <p>Cadernos de exercícios focados na fixação de conjugações e partículas essenciais.</p>
                     </div>
                 </div>
 
-                <!-- Inglês -->
                 <div class="ebook-card">
                     <div>
                         <span class="tag tag-en">Inglês</span>
@@ -379,7 +407,7 @@
                     <div>
                         <span class="tag tag-en">Inglês</span>
                         <h4>Técnicas de Interpretação e ENEM</h4>
-                        <p>Skimming, Scanning, Cognatos e estruturas perfeitas para gabaritar provas e leituras em inglês.</p>
+                        <p>Skimming, Scanning, Cognatos e estruturas perfeitas para gabaritar leituras em inglês.</p>
                     </div>
                 </div>
 
@@ -387,10 +415,9 @@
                     <div>
                         <span class="tag tag-en">Inglês</span>
                         <h4>Tempos Verbais & Vocabulário</h4>
-                        <p>Conjugações em Continuous, Perfect, Simple e os verbos em inglês mais usados no cotidiano.</p>
+                        <p>Conjugações em Continuous, Perfect, Simple e os verbos em inglês mais usados.</p>
                     </div>
                 </div>
-
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
@@ -420,15 +447,15 @@
         </div>
     </section>
 
-    <!-- CAIXA DE OFERTA / CHECKOUT -->
+    <!-- OFFER BOX -->
     <section class="section-light" id="checkout">
         <div class="container">
             <div class="offer-box">
                 <p style="text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Oferta Especial por Tempo Limitado</p>
                 <h3 style="font-size: 1.8rem; margin: 15px 0;">Kit Completo: 11 E-books de Coreano + Inglês Visual</h3>
                 
-                <p class="price-old">De R$ 147,00</p>
-                <p class="price-new">R$ 29,90</p>
+                <p class="price-old">De R$ 197,00</p>
+                <p class="price-new">R$ 37,90</p>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">ou em até 4x no cartão de crédito</p>
 
                 <ul style="text-align: left; max-width: 380px; margin: 25px auto; color: var(--text-light); font-size: 0.95rem; line-height: 2; list-style: none;">
@@ -472,5 +499,52 @@
         </div>
     </footer>
 
+    <!-- SCRIPT DE CONTROLE DO CARROSSEL & BLOQUEIO -->
+    <script>
+        const slider = document.getElementById('carouselContainer');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let autoScrollSpeed = 1; // Velocidade da rotagem contínua
+
+        // ROAGEM AUTOMÁTICA CONTÍNUA INFINITA
+        function autoScroll() {
+            if (!isDown) {
+                slider.scrollLeft += autoScrollSpeed;
+                // SE CHEGAR AO FINAL DO PRIMEIRO BLOCO, VOLTA INVISIVELMENTE
+                if (slider.scrollLeft >= slider.scrollWidth / 2) {
+                    slider.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        autoScroll();
+
+        // EVENTOS DE ARRASTAR COM O MOUSE E COM O DEDO (TOUCH)
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => { isDown = false; });
+        slider.addEventListener('mouseup', () => { isDown = false; });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // VELOCIDADE DO ARRASTE
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // BLOQUEIA ATALHOS DE TECLADO DE SALVAR/INSPECIONAR (CTRL+S, CTRL+U, F12)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || 
+               (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I'))) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
