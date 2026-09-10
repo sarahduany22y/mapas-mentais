@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kit Definitivo de Mapas Mentais | Coreano e Inglês Visual</title>
+
+    <!-- META PIXEL CODE -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2687690534938652');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2687690534938652&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- END META PIXEL CODE -->
+
     <style>
         /* CSS RESET & VARIAVEIS */
         * {
@@ -110,14 +129,27 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
-            color: #555;
+            font-size: 1.15rem;
+            color: #444;
             margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .mockup-container {
+        .protected-img-wrapper {
             position: relative;
             display: inline-block;
+        }
+
+        .protected-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: rgba(0,0,0,0);
         }
 
         .mockup-img {
@@ -126,7 +158,7 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             margin: 20px 0;
-            pointer-events: none; /* IMPEDE CLIQUE DIREITO / SALVAR */
+            pointer-events: none;
         }
 
         /* CARROSSEL ARRASTÁVEL & INFINITO */
@@ -138,11 +170,11 @@
             padding: 20px 0 40px 0;
             position: relative;
             cursor: grab;
-            scrollbar-width: none; /* ESCONDE SCROLLBAR FIREFOX */
+            scrollbar-width: none;
         }
 
         .carousel-container::-webkit-scrollbar {
-            display: none; /* ESCONDE SCROLLBAR CHROME/SAFARI */
+            display: none;
         }
 
         .carousel-container:active {
@@ -161,23 +193,7 @@
             border-radius: 10px;
             border: 2px solid var(--border-color);
             object-fit: cover;
-            pointer-events: none; /* IMPEDE ARRASTAR A IMAGEM EM SI */
-        }
-
-        /* PROTEÇÃO ANTI-DOWNLOAD / ANTI-PRINT */
-        .protected-img-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .protected-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10;
-            background: rgba(0,0,0,0);
+            pointer-events: none;
         }
 
         /* FEATURES / BENEFICIOS */
@@ -292,13 +308,15 @@
         }
     </style>
 </head>
-<body oncontextmenu="return false;"> <!-- DESABILITA CLIQUE DIREITO NO SITE -->
+<body oncontextmenu="return false;">
 
     <!-- HERO SECTION -->
     <section class="section-light hero">
         <div class="container">
-            <h1>+385 Mapas Mentais para Aprender <span class="highlight-yellow">Coreano e Inglês</span> de Forma Visual</h1>
-            <p>Estude do básico ao avançado com conteúdos organizados, ilustrados e fáceis de revisar pelo celular, tablet ou impresso.</p>
+            <h1>+382 Mapas Mentais para Aprender <span class="highlight-yellow">Coreano e Inglês</span> de Forma Visual</h1>
+            
+            <!-- SUBTÍTULO ATUALIZADO COM CLAREZA E FOCO NO BENEFÍCIO -->
+            <p>Estude do básico ao avançado com materiais totalmente organizados, ilustrados e fáceis de revisar direto pelo celular, tablet ou impressos.</p>
             
             <div class="protected-img-wrapper">
                 <div class="protected-overlay"></div>
@@ -454,7 +472,7 @@
                 <p style="text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Oferta Especial por Tempo Limitado</p>
                 <h3 style="font-size: 1.8rem; margin: 15px 0;">Kit Completo: 11 E-books de Coreano + Inglês Visual</h3>
                 
-                <p class="price-old">De R$ 197,00</p>
+                <p class="price-old">De R$ 147,00</p>
                 <p class="price-new">R$ 29,90</p>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">ou em até 4x no cartão de crédito</p>
 
@@ -479,7 +497,7 @@
             <br>
             <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Como vou receber o material?</h4>
-                <p>O acesso é imediato! Assim que o pagamento for confirmado, você receberá os links para download de todos os PDFs no seu e-mail.</p>
+                <p>O acesso é imediato! Assim que o pagamento for confirmed, você receberá os links para download de todos os PDFs no seu e-mail.</p>
             </div>
             <div class="faq-item" style="color: var(--text-dark);">
                 <h4>Posso imprimir os e-books e mapas mentais?</h4>
@@ -505,13 +523,11 @@
         let isDown = false;
         let startX;
         let scrollLeft;
-        let autoScrollSpeed = 1; // Velocidade da rotagem contínua
+        let autoScrollSpeed = 1;
 
-        // ROAGEM AUTOMÁTICA CONTÍNUA INFINITA
         function autoScroll() {
             if (!isDown) {
                 slider.scrollLeft += autoScrollSpeed;
-                // SE CHEGAR AO FINAL DO PRIMEIRO BLOCO, VOLTA INVISIVELMENTE
                 if (slider.scrollLeft >= slider.scrollWidth / 2) {
                     slider.scrollLeft = 0;
                 }
@@ -520,7 +536,6 @@
         }
         autoScroll();
 
-        // EVENTOS DE ARRASTAR COM O MOUSE E COM O DEDO (TOUCH)
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             startX = e.pageX - slider.offsetLeft;
@@ -534,11 +549,10 @@
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // VELOCIDADE DO ARRASTE
+            const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeft - walk;
         });
 
-        // BLOQUEIA ATALHOS DE TECLADO DE SALVAR/INSPECIONAR (CTRL+S, CTRL+U, F12)
         document.addEventListener('keydown', function (e) {
             if (e.key === 'F12' || 
                (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I'))) {
