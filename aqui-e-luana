@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conteúdo Exclusivo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Estilização para a barra de arraste personalizada */
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+      transition: transform 0.1s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:active {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4 selection:bg-pink-500 selection:text-white">
+
+  <div class="max-w-md w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl text-center relative overflow-hidden">
+    
+    <!-- Efeito de brilho de fundo -->
+    <div class="absolute -top-24 -left-24 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Ícone de Presente / Caixa surpresa -->
+    <div class="relative z-10 mb-6">
+      <div class="w-28 h-28 mx-auto bg-slate-800/80 border border-slate-700/60 rounded-2xl flex items-center justify-center text-6xl shadow-inner transform transition hover:scale-105 duration-300">
+        🎁
+      </div>
+    </div>
+
+    <!-- Título e Chamada Direta -->
+    <div class="relative z-10 mb-8">
+      <h1 class="text-2xl font-bold tracking-tight mb-2">Surpresa Especial</h1>
+      <p class="text-slate-400 text-sm">Arraste para o lado para liberar o acesso ao meu conteúdo VIP</p>
+    </div>
+
+    <!-- Barra de Arraste (Swipe Slider) -->
+    <div class="relative z-10 w-full bg-slate-800/90 p-2 rounded-full border border-slate-700/50 shadow-inner flex items-center">
+      
+      <!-- Texto deslizante de fundo guiando o usuário -->
+      <span id="slider-text" class="absolute inset-0 flex items-center justify-center text-xs uppercase tracking-widest text-slate-400 font-semibold pointer-events-none transition-opacity duration-300">
+        Arraste para liberar ➔
+      </span>
+
+      <!-- Input Range que simula o gesto de arrastar -->
+      <input type="range" id="swipeRange" min="0" max="100" value="0" 
+             class="w-full appearance-none bg-transparent relative z-20 focus:outline-none cursor-pointer">
+    </div>
+
+  </div>
+
+  <!-- Rodapé discreto -->
+  <footer class="mt-8 text-slate-600 text-xs">
+    Plataforma segura &bull; +18
+  </footer>
+
+  <script>
+    const range = document.getElementById('swipeRange');
+    const sliderText = document.getElementById('slider-text');
+
+    // Controla a opacidade do texto de instrução conforme o usuário arrasta
+    range.addEventListener('input', (e) => {
+      const val = e.target.value;
+      sliderText.style.opacity = 1 - (val / 50);
+
+      // Se o usuário chegar até o final (90% ou mais)
+      if (val >= 90) {
+        range.disabled = true;
+        sliderText.innerText = "Liberando acesso...";
+        
+        // Captura as UTMs da URL atual para repassar ao destino final
+        const urlParams = new URLSearchParams(window.location.search);
+        let utmString = urlParams.toString();
+        if (utmString) utmString = "?" + utmString;
+
+        // URL de destino final (Bot do Telegram com as UTMs preservadas)
+        const targetUrl = "https://t.me/luana_oficial_bot" + utmString;
+
+        // Pequeno delay visual antes de redirecionar
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 400);
+      }
+    });
+
+    // Se o usuário soltar antes de terminar, o botão volta suavemente ao início
+    range.addEventListener('mouseup', () => {
+      if (range.value < 90) {
+        range.value = 0;
+        sliderText.style.opacity = 1;
+      }
+    });
+
+    range.addEventListener('touchend', () => {
+      if (range.value < 90) {
+        range.value = 0;
+        sliderText.style.opacity = 1;
+      }
+    });
+  </script>
+
+</body>
+</html>
