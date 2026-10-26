@@ -67,6 +67,14 @@
     const range = document.getElementById('swipeRange');
     const sliderText = document.getElementById('slider-text');
 
+    // Garante que o input comece zerado caso o usuário volte pelo histórico
+    window.addEventListener('pageshow', () => {
+      range.value = 0;
+      range.disabled = false;
+      sliderText.style.opacity = 1;
+      sliderText.innerText = "Arraste para liberar ➔";
+    });
+
     // Controla a opacidade do texto de instrução conforme o usuário arrasta
     range.addEventListener('input', (e) => {
       const val = e.target.value;
