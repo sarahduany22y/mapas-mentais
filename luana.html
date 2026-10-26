@@ -85,12 +85,20 @@
         range.disabled = true;
         sliderText.innerText = "Liberando acesso...";
         
-        // Captura as UTMs da URL atual para repassar ao destino final
+        // Pega os parâmetros que já venham na URL (se houver)
         const urlParams = new URLSearchParams(window.location.search);
-        let utmString = urlParams.toString();
-        if (utmString) utmString = "?" + utmString;
 
-        // URL de destino final (Bot do Telegram com as UTMs preservadas)
+        // Se o usuário acessou sem UTM nenhuma, o script força o registro como Pinterest Orgânico
+        if (!urlParams.has('utm_source')) {
+          urlParams.set('utm_source', 'Pinterest');
+        }
+        if (!urlParams.has('utm_medium')) {
+          urlParams.set('utm_medium', 'organic');
+        }
+
+        let utmString = "?" + urlParams.toString();
+
+        // URL de destino final forçando o registro do lead vindo do Pinterest
         const targetUrl = "https://t.me/luana_oficial_bot" + utmString;
 
         // Pequeno delay visual antes de redirecionar
